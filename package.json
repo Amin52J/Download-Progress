@@ -1,0 +1,30 @@
+{
+  "name": "page-loading",
+  "version": "0.0.1",
+  "description": "A small library to create awesome page and file loading progress bars.",
+  "main": "page-loading.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Amin52J/Page-Loading.git"
+  },
+  "keywords": [
+    "page",
+    "loading",
+    "progress",
+    "javascript",
+    "js",
+    "library",
+    "fast",
+    "high",
+    "performance"
+  ],
+  "author": "Amin Jafari",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Amin52J/Page-Loading/issues"
+  },
+  "homepage": "http://A-Jafari.com/Projects/Page-Loading"
+}
