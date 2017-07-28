@@ -1,6 +1,6 @@
 {
   "name": "page-loading",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A small library to create awesome page and file loading progress bars.",
   "main": "page-loading.js",
   "scripts": {

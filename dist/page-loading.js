@@ -6,7 +6,7 @@
  * @event progress
  * @return {pageLoadingObject}
  **/
-var pageLoading = (function (files) {
+var PageLoading = (function (files) {
 
   /**
    * @desc pageLoading constructor

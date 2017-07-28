@@ -4,13 +4,13 @@ A small library to create awesome page loading progress bars.
 ### How to start?
 
 * Install using npm `npm install page-loading`
-* If using ECMAScript 6 then `import PageLoading from 'page-loading'`
-* If using ECMAScript 5 then include `<script src="~/node_modules/dist/page-loading.js"></script>` in the head of your index.html
+* If using ECMAScript 6 then `import PageLoading from 'page-loading'` then `new PageLoading(filesToLoad)`
+* If using ECMAScript 5 then include `<script src="~/node_modules/dist/page-loading.js"></script>` in the head of your index.html then `PageLoading(filesToLoad)`
 
 ### How to use?
 
     var files = ['myJS.js','myCSS.css','myText.txt'];
-    var pl = pageLoading(files);
+    var pl = PageLoading(files);
     pl.on('progress',function(e){
         console.log(e.detail + ' combined percentage loaded!');
     }).on('afterLoading',function(e){
