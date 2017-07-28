@@ -1,5 +1,7 @@
 # Page-Loading
-A small library to create awesome page loading progress bars.
+A small, low-level library to create awesome page loading and download progress bars.
+
+Page Loading as its name states was originally made to create a progress bar for page loading but you can use it to create progress bars for any type of file downloads. 
 
 ### How to start?
 
