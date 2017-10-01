@@ -1,25 +1,28 @@
-# Page-Loading
-A small, low-level library to create awesome page loading and download progress bars.
-
-Page Loading as its name states was originally made to create a progress bar for page loading but you can use it to create progress bars for any type of file downloads. 
+# Download Progress
+A small, low-level library to create awesome file download progress bars. 
 
 ### How to start?
 
-* Install using npm `npm install page-loading`
-* If using ECMAScript 6 then `import PageLoading from 'page-loading'` then `new PageLoading(filesToLoad)`
-* If using ECMAScript 5 then include `<script src="~/node_modules/dist/page-loading.js"></script>` in the head of your index.html then `PageLoading(filesToLoad)`
+* Install using npm `npm install download-progress`
+* If using ECMAScript 6 then `import DownloadProgress from 'download-progress'` then `DownloadProgress(filesToLoad)`
+* If using ECMAScript 5 then include `<script src="[PATH-TO-FILE]/download-progress.js"></script>` in the head of your index.html then `DownloadProgress(filesToLoad)`
 
 ### How to use?
 
+    //set up the library
     var files = ['myJS.js','myCSS.css','myText.txt'];
-    var pl = PageLoading(files);
-    pl.on('progress',function(e){
+    var dp = DownloadProgress(files);
+    
+    //add event listeners
+    dp.on('progress',function(e){
         console.log(e.detail + ' combined percentage loaded!');
     }).on('afterLoading',function(e){
         console.log(e.detail.url + ' is completely loaded!');
         console.log(e.detail.response); //this is the content of the loaded file
     });
-    pl.init();
+    
+    //initialize
+    dp.init();
     
 ### Methods
 * **on**: Attaches a callback to one of the events
@@ -27,7 +30,7 @@ Page Loading as its name states was originally made to create a progress bar for
     
 ### Events
 
-* **beforeLoading**: Dispatches right before the loading process starts
+* **beforeLoading**: Dispatches right before the download process starts
 * **afterLoading**: Dispatches once after each url is completely loaded
 * **progress**: Dispatches when the progress value (the percentage) changes
 

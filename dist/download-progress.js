@@ -1,15 +1,15 @@
 /**
- * @desc pageLoading initiator
+ * @desc downloadProgress initiator
  * @param files {Array}
  * @event beforeLoading
  * @event afterLoading
  * @event progress
- * @return {pageLoadingObject}
+ * @return {downloadProgressObject}
  **/
-var PageLoading = (function (files) {
+var DownloadProgress = (function (files) {
 
   /**
-   * @desc pageLoading constructor
+   * @desc downloadProgress constructor
    * @param files {Array}
    **/
   var constructor = (function (files) {
@@ -33,7 +33,7 @@ var PageLoading = (function (files) {
    * @param url {String}
    * @param oEvent {Object}
    **/
-  function _pageLoadingUpdateProgress(url, oEvent) {
+  function _downloadProgressUpdateProgress(url, oEvent) {
     if (oEvent.lengthComputable) {
       var percentComplete = oEvent.loaded / oEvent.total;
       var totalPercentage = 0;
@@ -51,10 +51,10 @@ var PageLoading = (function (files) {
    * @desc gets the target file and sends the responseText back
    * @param index {Number}
    **/
-  function _pageLoadingInclude(index) {
+  function _downloadProgressInclude(index) {
     var req = new XMLHttpRequest();
     var url = this.files[index];
-    req.addEventListener("progress", _pageLoadingUpdateProgress.bind(this, url));
+    req.addEventListener("progress", _downloadProgressUpdateProgress.bind(this, url));
     req.open("GET", url);
     req.onreadystatechange = (function (index) {
       if ((req.status === 200) && (req.readyState === 4)) {
@@ -68,7 +68,7 @@ var PageLoading = (function (files) {
    * @desc attaches the callback to the given even
    * @param event {Object}
    * @param callback {Function}
-   * @return {pageLoadingObject}
+   * @return {downloadProgressObject}
    **/
   constructor.prototype.on = function (event, callback) {
     document.addEventListener(event, callback, false);
@@ -77,7 +77,7 @@ var PageLoading = (function (files) {
 
   /**
    * @desc initializes the loading
-   * @return {pageLoadingObject}
+   * @return {downloadProgressObject}
    **/
   constructor.prototype.init = function () {
     document.dispatchEvent(this.events.beforeLoading);
@@ -85,7 +85,7 @@ var PageLoading = (function (files) {
     for (; i < this.filesLength; i++) {
       this.percentages[this.files[i]] = 0;
       (function (index) {
-        _pageLoadingInclude.call(this, index);
+        _downloadProgressInclude.call(this, index);
       }).call(this, i);
     }
     return this;

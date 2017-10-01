@@ -1,15 +1,15 @@
 /**
- * @desc pageLoading initiator
+ * @desc downloadProgress initiator
  * @param files {Array}
  * @event beforeLoading
  * @event afterLoading
  * @event progress
- * @return {pageLoadingObject}
+ * @return {downloadProgressObject}
  **/
-export default class PageLoading {
+class downloadProgress {
 
   /**
-   * @desc pageLoading constructor
+   * @desc downloadProgress constructor
    * @param files {Array}
    **/
   constructor(files) {
@@ -33,7 +33,7 @@ export default class PageLoading {
    * @param url {String}
    * @param oEvent {Object}
    **/
-  _pageLoadingUpdateProgress(url, oEvent) {
+  _downloadProgressUpdateProgress(url, oEvent) {
     if (oEvent.lengthComputable) {
       let percentComplete = oEvent.loaded / oEvent.total;
       let totalPercentage = 0;
@@ -51,10 +51,10 @@ export default class PageLoading {
    * @desc gets the target file and sends the responseText back
    * @param index {Number}
    **/
-  _pageLoadingInclude(index) {
+  _downloadProgressInclude(index) {
     let req = new XMLHttpRequest();
     let url = this.files[index];
-    req.addEventListener("progress", this._pageLoadingUpdateProgress.bind(this, url));
+    req.addEventListener("progress", this._downloadProgressUpdateProgress.bind(this, url));
     req.open("GET", url);
     req.onreadystatechange = (function (index) {
       if ((req.status === 200) && (req.readyState === 4)) {
@@ -68,7 +68,7 @@ export default class PageLoading {
    * @desc attaches the callback to the given even
    * @param event {Object}
    * @param callback {Function}
-   * @return {pageLoadingObject}
+   * @return {downloadProgressObject}
    **/
   on(event, callback) {
     document.addEventListener(event, callback, false);
@@ -77,15 +77,17 @@ export default class PageLoading {
 
   /**
    * @desc initializes the loading
-   * @return {pageLoadingObject}
+   * @return {downloadProgressObject}
    **/
   init() {
     document.dispatchEvent(this.events.beforeLoading);
     let i = 0;
     for (; i < this.filesLength; i++) {
       this.percentages[this.files[i]] = 0;
-      this._pageLoadingInclude(i);
+      this._downloadProgressInclude(i);
     }
     return this;
   };
 }
+
+export default DownloadProgress = files => new downloadProgress(files);

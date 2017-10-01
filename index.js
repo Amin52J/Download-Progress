@@ -1,3 +1,3 @@
-import PageLoading from './dist/page-loading.es6';
+import DownloadProgress from './dist/download-progress.es6';
 
-module.exports = PageLoading;
+module.exports = DownloadProgress;

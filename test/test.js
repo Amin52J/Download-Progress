@@ -1,6 +1,6 @@
 var expect = chai.expect;
 
-describe('pageLoading Selector', function () {
+describe('Download Progress Selector', function () {
   it('Builds the constructor', function () {
     var files = ['/package.json'];
     var pl = pageLoading(files);

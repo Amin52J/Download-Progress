@@ -1,18 +1,16 @@
 {
-  "name": "page-loading",
+  "name": "download-progress",
   "version": "0.0.2",
-  "description": "A small library to create awesome page and file loading progress bars.",
-  "main": "page-loading.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+  "description": "A small library to create awesome file downloading progress bars.",
+  "main": "download-progress.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Amin52J/Page-Loading.git"
+    "url": "git+https://github.com/Amin52J/Download-Progress.git"
   },
   "keywords": [
     "page",
     "loading",
+    "download",
     "progress",
     "javascript",
     "js",
@@ -24,7 +22,7 @@
   "author": "Amin Jafari",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Amin52J/Page-Loading/issues"
+    "url": "https://github.com/Amin52J/Download-Progress/issues"
   },
-  "homepage": "http://A-Jafari.com/Projects/Page-Loading"
+  "homepage": "http://A-Jafari.com/Projects/Download-Progress"
 }
