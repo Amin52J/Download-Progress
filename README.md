@@ -34,6 +34,10 @@ A small, low-level library to create awesome file download progress bars.
 * **afterLoading**: Dispatches once after each url is completely loaded
 * **progress**: Dispatches when the progress value (the percentage) changes
 
+### NOTE
+
+For seeing the progress of gzip files you need to set a header for the file in the backend api called `x-decompressed-content-length` so that Download Progress can get the uncompressed file size and calculate the progress.
+
 #### Feel free to contribute, leave suggestion or issues. 
 
 ## License

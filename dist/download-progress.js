@@ -34,17 +34,16 @@ var DownloadProgress = (function (files) {
    * @param oEvent {Object}
    **/
   function _downloadProgressUpdateProgress(url, oEvent) {
-    if (oEvent.lengthComputable) {
-      var percentComplete = oEvent.loaded / oEvent.total;
-      var totalPercentage = 0;
-      var key;
-      this.percentages[url] = percentComplete;
-      for (key in this.percentages) {
-        totalPercentage += this.percentages[key];
-      }
-      this.percentage = (totalPercentage / this.filesLength) * 100;
-      document.dispatchEvent(this.events.progress(this.percentage));
+    var percentComplete = oEvent.lengthComputable ? oEvent.loaded / oEvent.total : oEvent.loaded / oEvent.target.getResponseHeader('x-decompressed-content-length');
+    var totalPercentage = 0;
+    var key;
+    this.percentages[url] = percentComplete;
+    for (key in this.percentages) {
+      totalPercentage += this.percentages[key];
     }
+    this.percentage = (totalPercentage / this.filesLength) * 100;
+    document.dispatchEvent(this.events.progress(this.percentage));
+
   }
 
   /**

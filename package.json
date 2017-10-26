@@ -1,5 +1,5 @@
 {
-  "name": "download-progress",
+  "name": "download-prog",
   "version": "0.0.2",
   "description": "A small library to create awesome file downloading progress bars.",
   "main": "download-progress.js",

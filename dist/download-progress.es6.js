@@ -34,17 +34,15 @@ class downloadProgress {
    * @param oEvent {Object}
    **/
   _downloadProgressUpdateProgress(url, oEvent) {
-    if (oEvent.lengthComputable) {
-      let percentComplete = oEvent.loaded / oEvent.total;
-      let totalPercentage = 0;
-      let key;
-      this.percentages[url] = percentComplete;
-      for (key in this.percentages) {
-        totalPercentage += this.percentages[key];
-      }
-      this.percentage = (totalPercentage / this.filesLength) * 100;
-      document.dispatchEvent(this.events.progress(this.percentage));
+    let percentComplete = oEvent.lengthComputable ? oEvent.loaded / oEvent.total : oEvent.loaded / oEvent.target.getResponseHeader('x-decompressed-content-length');
+    let totalPercentage = 0;
+    let key;
+    this.percentages[url] = percentComplete;
+    for (key in this.percentages) {
+      totalPercentage += this.percentages[key];
     }
+    this.percentage = (totalPercentage / this.filesLength) * 100;
+    document.dispatchEvent(this.events.progress(this.percentage));
   }
 
   /**
